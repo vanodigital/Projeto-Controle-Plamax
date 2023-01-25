@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cadastro de Produtos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="assets/styles.css" />
+        <script type="text/javascript" src="assets/script.js"></script>
+		<script src="https://apis.google.com/js/api.js"></script>
+<script>
+    gapi.load("client", initClient);
+
+    function initClient() {
+        gapi.client.init({
+            apiKey: "AIzaSyCLw0t9WXT2l7V-WvMwF5pR1BIx1mNxx-Q",
+            discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+            scope: "https://www.googleapis.com/auth/spreadsheets"
+        }).then(function() {
+            console.log("Cliente inicializado");
+        });
+    }
+</script>
+
+    </head>
+    <body>
+        <div class="text-center my-3">
+            <h1 class="border-bottom border-secondary pb-3">Controle | Giovanni | Plamax Sul Ar e Água</h1>
+        </div>
+        <div id="formulario-cadastro" class="row">
+            <div class="col-sm-12 col-md-4">
+                <label for="ean">Código EAN:</label>
+                <input type="text" id="ean" name="ean" class="form-control" />
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="nome">Nome do Produto:</label>
+                <input type="text" id="nome" name="nome" class="form-control" />
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" class="form-control" />
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" class="form-control" />
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <label for="estoque">Estoque:</label>
+                <input type="number" id="estoque" name="estoque" class="form-control" />
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <button type="submit" id="cadastrar" class="btn btn-primary" onclick="cadastrarProduto()">Cadastrar</button>
+                <input type="file" id="csv-import" name="csv-import" accept=".csv" class="form-control-file" />
+                <label for="csv-import" id="import-label"></label>
+            </div>
+        </div>
+        <div id="barra-pesquisa">
+            <input type="text" id="ean-pesquisa" name="ean-pesquisa" placeholder="Pesquisar por EAN" />
+            <button type="button" class="btn btn-primary" id="pesquisar" onclick="pesquisarProduto()">Pesquisar</button>
+            <button type="button" class="btn btn-secondary" id="exportar" onclick="exportCSV()">Exportar CSV</button>
+            <button type="button" id="importar" class="btn btn-warning" onclick="importarCSV()">Importar CSV</button>
+        </div>
+        <table id="tabela-produtos">
+            <tr>
+                <th>Código EAN</th>
+                <th>Nome do Produto</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Estoque</th>
+                <th>Ações</th>
+            </tr>
+        </table>
+    </body>
+</html>

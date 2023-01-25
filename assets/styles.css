@@ -1,0 +1,61 @@
+/* Adicione aqui seu estilo CSS */
+body {
+    background-color: #f2f2f2;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #e6e6e6;
+}
+
+#barra-pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#ean-pesquisa {
+    padding: 12px 20px;
+    width: 50%;
+}
+
+#tabela-produtos tr:hover {
+    background-color: #d9d9d9;
+}
+
+#pesquisar,
+#importar,
+#exportar {
+    padding: 12px 20px;
+    width: 20%;
+	margin-left: 10px;
+}
+
+#cadastrar {
+	margin-top: 33px;
+	margin-bottom: 10px;
+	background-color: #0fa852;
+	border-color: #0fa852;
+}
+#cadastrar:hover {
+	margin-top: 33px;
+	margin-bottom: 10px;
+	background-color: #0b6a35;
+	border-color: #0b6a35;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  margin-right: 10px;
+}
